@@ -30,22 +30,23 @@ var (
 	}()
 )
 
-// highlightedCode renders code with chroma using inline styles. On any
-// failure it falls back to a plain CodeBlock so docs never fail to render.
-func highlightedCode(lang, code string) g.Node {
+// highlightedCode renders code with chroma using inline styles, wrapped in a
+// <pre class={class}> tag. On any failure it falls back to plain text inside
+// the same <pre> so docs never fail to render.
+func highlightedCode(class, lang, code string) g.Node {
 	lexer := lexers.Get(lang)
 	if lexer == nil {
-		return comp.CodeBlock("", code)
+		return h.Pre(h.Class(class), g.Text(code))
 	}
 	iter, err := lexer.Tokenise(nil, code)
 	if err != nil {
-		return comp.CodeBlock("", code)
+		return h.Pre(h.Class(class), g.Text(code))
 	}
 	var buf bytes.Buffer
 	if err := chromaFormatter.Format(&buf, chromaStyle, iter); err != nil {
-		return comp.CodeBlock("", code)
+		return h.Pre(h.Class(class), g.Text(code))
 	}
-	return h.Pre(h.Class("code-block"), g.Raw(buf.String()))
+	return h.Pre(h.Class(class), g.Raw(buf.String()))
 }
 
 func docsPage(title, activeSlug string, groups []componentGroup, content ...g.Node) g.Node {
@@ -100,7 +101,7 @@ func componentGroupPage(grp componentGroup, groups []componentGroup) g.Node {
 		sections = append(sections, componentSection(c))
 	}
 	return docsPage(grp.Name, grp.Slug, groups,
-		comp.PageHeader(grp.Name, comp.SecondaryLink("All Components", "/")),
+		comp.PageHeader(grp.Name, comp.SecondaryLink("All Components", layout.Path("/"))),
 		h.P(h.Class("docs-intro"), g.Text(grp.Description)),
 		g.Group(sections),
 	)
@@ -117,7 +118,7 @@ func componentSection(c componentDoc) g.Node {
 			g.If(c.Description != "",
 				h.P(h.Class("component-description"), g.Text(c.Description)),
 			),
-			h.Pre(h.Class("component-signature"), g.Text(c.Signature)),
+			highlightedCode("component-signature", "go", c.Signature),
 		),
 		g.Group(examples),
 	)
@@ -130,7 +131,7 @@ func exampleBlock(ex componentExample) g.Node {
 		),
 		h.Div(h.Class("demo"), ex.Demo),
 		h.Div(h.Class("code"),
-			highlightedCode("go", ex.Code),
+			highlightedCode("code-block", "go", ex.Code),
 		),
 	)
 }
