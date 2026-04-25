@@ -16,9 +16,26 @@ main {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-4);
+	flex: 1;
 
 	&.layout-full {
 		max-width: none;
+	}
+}
+
+.site-footer {
+	border-top: 1px dashed var(--border-subtle);
+	color: var(--text-muted);
+	font-size: 0.8rem;
+	margin-top: auto;
+
+	> .inner {
+		display: flex;
+		justify-content: space-between;
+		/* align-items: center; */
+		max-width: var(--content-width);
+		margin: 0 auto;
+		padding: var(--space-3) var(--space-4);
 	}
 }
 

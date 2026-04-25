@@ -68,6 +68,18 @@ func Layout(title, pageClass string, children ...g.Node) g.Node {
 				h.Main(h.Class(pageClass),
 					g.Group(children),
 				),
+				h.Footer(h.Class("site-footer"),
+					h.Div(h.Class("inner"),
+						h.Div(
+							h.A(h.Href("https://github.com/quinn/components"), g.Text("github")),
+						),
+						h.Div(
+							h.A(h.Href("https://quinn.io"), g.Text("quinn.io")),
+							g.Text(" • "),
+							h.A(h.Href("https://loosecollective.dev"), g.Text("loosecollective.dev")),
+						),
+					),
+				),
 			),
 		),
 	)
