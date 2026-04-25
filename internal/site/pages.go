@@ -83,7 +83,12 @@ func homePage(groups []componentGroup) g.Node {
 			g.Group(cards),
 		),
 		comp.PageHeader("Installation"),
+
+		h.P(h.Class("docs-intro"), g.Text("Go package:"), h.Br()),
 		highlightedCode("install-command", "shell", "go get go.quinn.io/components"),
+
+		h.P(h.Class("docs-intro"), g.Text("Also, you will need to download the stylesheets. Or just the CSS (for use with your own components):"), h.Br()),
+		highlightedCode("install-command", "shell", "curl -O https://quinn.github.io/components/variables.css\ncurl -O https://quinn.github.io/components/components.css"),
 	)
 }
 
