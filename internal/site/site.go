@@ -7,6 +7,7 @@ import (
 	g "maragu.dev/gomponents"
 	h "maragu.dev/gomponents/html"
 
+	"go.quinn.io/components/internal/ui"
 	"go.quinn.io/components/ssg"
 )
 
@@ -20,20 +21,5 @@ func New() *ssg.Site {
 }
 
 func home() g.Node {
-	return h.Doctype(
-		h.HTML(
-			h.Lang("en"),
-			h.Head(
-				h.Meta(h.Charset("utf-8")),
-				h.Meta(
-					h.Name("viewport"),
-					h.Content("width=device-width, initial-scale=1"),
-				),
-				h.TitleEl(g.Text("Components")),
-			),
-			h.Body(
-				h.H1(g.Text("Components")),
-			),
-		),
-	)
+	return ui.Layout(nil, "Components", "", h.H1(g.Text("Components")))
 }
