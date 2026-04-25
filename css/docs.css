@@ -91,7 +91,7 @@ main.docs {
 
 .component-signature {
 	font-size: 0.8rem;
-	padding: var(--space-1) var(--space-2);
+	padding: var(--space-1) var(--space-3);
 	background: var(--surface-alt);
 	border: 1px solid var(--border-subtle);
 	white-space: pre-wrap;
@@ -111,7 +111,7 @@ main.docs {
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 		color: var(--text-muted);
-		padding: var(--space-1) var(--space-2);
+		padding: var(--space-1) var(--space-3);
 		background: var(--surface-alt);
 		border-bottom: 1px solid var(--border-subtle);
 	}
