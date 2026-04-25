@@ -80,6 +80,22 @@ func Layout(title, pageClass string, children ...g.Node) g.Node {
 						),
 					),
 				),
+				h.Script(g.Raw(`
+function switchTab(btn) {
+	var example = btn.closest('.example');
+	var tab = btn.getAttribute('data-tab');
+
+	// Update tab buttons
+	example.querySelectorAll('.code-tab').forEach(function(t) {
+		t.classList.toggle('active', t.getAttribute('data-tab') === tab);
+	});
+
+	// Update code blocks
+	example.querySelectorAll('.code').forEach(function(c) {
+		c.classList.toggle('active', c.classList.contains('code-' + tab));
+	});
+}
+`)),
 			),
 		),
 	)

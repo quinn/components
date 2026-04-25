@@ -131,10 +131,47 @@ main.docs {
 
 	> .code {
 		border-top: 1px solid var(--border-subtle);
+		display: none;
+
+		&.active {
+			display: block;
+		}
 
 		> .code-block {
 			border: none;
 			font-size: 0.8rem;
+		}
+	}
+
+	> .code-tabs {
+		display: flex;
+		gap: 0;
+		border-top: 1px solid var(--border-subtle);
+		background: var(--surface-alt);
+
+		> .code-tab {
+			padding: var(--space-1) var(--space-3);
+			font-size: 0.75rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+			background: transparent;
+			border: none;
+			border-right: 1px solid var(--border-subtle);
+			color: var(--text-muted);
+			cursor: pointer;
+
+			&:hover {
+				color: var(--text);
+				background: var(--surface);
+			}
+
+			&.active {
+				color: var(--text);
+				background: var(--surface);
+				border-bottom: 1px solid var(--surface);
+				margin-bottom: -1px;
+			}
 		}
 	}
 }

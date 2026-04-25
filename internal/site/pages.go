@@ -132,13 +132,40 @@ func componentSection(c componentDoc) g.Node {
 }
 
 func exampleBlock(ex componentExample) g.Node {
+	// Generate unique ID for this example's toggle
+	exampleID := ex.Title
+	if exampleID == "" {
+		exampleID = "example"
+	}
+
+	htmlCode := toHTML(ex.Demo)
+
 	return h.Div(h.Class("example"),
 		g.If(ex.Title != "",
 			h.Div(h.Class("title"), g.Text(ex.Title)),
 		),
 		h.Div(h.Class("demo"), ex.Demo),
-		h.Div(h.Class("code"),
+		h.Div(h.Class("code-tabs"),
+			h.Button(
+				h.Class("code-tab active"),
+				g.Attr("data-tab", "go"),
+				g.Attr("data-target", exampleID),
+				g.Attr("onclick", "switchTab(this)"),
+				g.Text("Go"),
+			),
+			h.Button(
+				h.Class("code-tab"),
+				g.Attr("data-tab", "html"),
+				g.Attr("data-target", exampleID),
+				g.Attr("onclick", "switchTab(this)"),
+				g.Text("HTML"),
+			),
+		),
+		h.Div(h.Class("code code-go active"),
 			highlightedCode("code-block", "go", ex.Code),
+		),
+		h.Div(h.Class("code code-html"),
+			highlightedCode("code-block", "html", htmlCode),
 		),
 	)
 }

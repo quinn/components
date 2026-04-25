@@ -1,9 +1,12 @@
 package site
 
 import (
+	"strings"
+
 	g "maragu.dev/gomponents"
 	h "maragu.dev/gomponents/html"
 
+	"github.com/yosssi/gohtml"
 	c "go.quinn.io/components/components/ui"
 )
 
@@ -25,6 +28,12 @@ type componentExample struct {
 	Title string
 	Code  string
 	Demo  g.Node
+}
+
+func toHTML(gomp g.Node) string {
+	var b strings.Builder
+	gomp.Render(&b)
+	return gohtml.Format(b.String())
 }
 
 func allGroups() []componentGroup {
