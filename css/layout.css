@@ -1,6 +1,7 @@
 .site-header {
 	border-bottom: 1px dashed var(--border-subtle);
-	.inner {
+
+	> .inner {
 		max-width: var(--content-width);
 		margin: 0 auto;
 		padding: var(--space-3) var(--space-4);
@@ -15,10 +16,10 @@ main {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-4);
-}
 
-main.layout-full {
-	max-width: none;
+	&.layout-full {
+		max-width: none;
+	}
 }
 
 .site-brand {
@@ -28,10 +29,10 @@ main.layout-full {
 	color: var(--text);
 	text-decoration: none;
 	text-transform: uppercase;
-}
 
-.site-brand:hover {
-	color: var(--accent);
+	&:hover {
+		color: var(--accent);
+	}
 }
 
 .page-header {
@@ -42,19 +43,19 @@ main.layout-full {
 	gap: var(--space-2);
 	padding-bottom: var(--space-2);
 	border-bottom: 1px dashed var(--border-subtle);
-}
 
-.page-header h1 {
-	font-size: 1.1rem;
-	text-transform: uppercase;
-	letter-spacing: 0.04em;
-}
+	> h1 {
+		font-size: 1.1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
 
-.page-header__nav {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space-3);
-	align-items: baseline;
+	> .nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-3);
+		align-items: baseline;
+	}
 }
 
 .button-row {

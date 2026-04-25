@@ -11,7 +11,7 @@ func Field(label, id string, control g.Node) g.Node {
 	return h.Label(
 		h.Class("field"),
 		h.For(id),
-		h.Span(h.Class("field__label"), g.Text(label)),
+		h.Span(h.Class("label"), g.Text(label)),
 		control,
 	)
 }

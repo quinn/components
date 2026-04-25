@@ -25,16 +25,16 @@
 	font-size: 0.8rem;
 	font-weight: 400;
 	letter-spacing: 0.02em;
-}
 
-.tag--accent {
-	background: var(--accent-soft);
-	border-color: var(--accent);
-	color: var(--accent);
-}
+	&.accent {
+		background: var(--accent-soft);
+		border-color: var(--accent);
+		color: var(--accent);
+	}
 
-.tag--danger {
-	background: var(--danger-soft);
-	border-color: var(--danger);
-	color: var(--danger);
+	&.danger {
+		background: var(--danger-soft);
+		border-color: var(--danger);
+		color: var(--danger);
+	}
 }

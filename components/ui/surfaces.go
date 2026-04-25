@@ -23,17 +23,17 @@ func SurfaceBlock(className string, children ...g.Node) g.Node {
 }
 
 func SurfaceHeader(title, meta string, actions ...g.Node) g.Node {
-	return h.Div(h.Class("surface__header"),
-		h.Div(h.Class("surface__main"),
-			h.H3(h.Class("surface__title"), g.Text(title)),
+	return h.Div(h.Class("surface-header"),
+		h.Div(h.Class("main"),
+			h.H3(h.Class("title"), g.Text(title)),
 			g.If(strings.TrimSpace(meta) != "",
-				h.P(h.Class("surface__meta"),
+				h.P(h.Class("meta"),
 					g.Text(meta),
 				),
 			),
 		),
 		g.If(len(actions) != 0,
-			h.Div(h.Class("surface__actions"),
+			h.Div(h.Class("actions"),
 				g.Group(actions),
 			),
 		),
@@ -41,13 +41,13 @@ func SurfaceHeader(title, meta string, actions ...g.Node) g.Node {
 }
 
 func SurfaceDetail(text string) g.Node {
-	return h.P(h.Class("surface__detail"),
+	return h.P(h.Class("surface-detail"),
 		g.Text(text),
 	)
 }
 
 func SurfaceStats(children ...g.Node) g.Node {
-	return h.Div(h.Class("surface__stats"),
+	return h.Div(h.Class("surface-stats"),
 		g.Group(children),
 	)
 }

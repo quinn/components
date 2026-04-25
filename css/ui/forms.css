@@ -6,38 +6,36 @@
 .field {
 	display: grid;
 	gap: var(--space-1);
-}
 
-.field__label {
-	font-size: 0.75rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.06em;
-	color: var(--text-muted);
-}
+	> .label {
+		font-size: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--text-muted);
+	}
 
-.field input,
-.field textarea,
-.field select {
-	width: 100%;
-	padding: 0.45rem 0.6rem;
-	background: var(--input-bg);
-	border: 1px solid var(--border);
-	border-radius: 0;
-	color: var(--text);
-	font: inherit;
-}
+	> input,
+	> textarea,
+	> select {
+		width: 100%;
+		padding: 0.45rem 0.6rem;
+		background: var(--input-bg);
+		border: 1px solid var(--border);
+		border-radius: 0;
+		color: var(--text);
+		font: inherit;
 
-.field input:focus,
-.field textarea:focus,
-.field select:focus {
-	outline: 2px solid var(--accent);
-	outline-offset: -1px;
-}
+		&:focus {
+			outline: 2px solid var(--accent);
+			outline-offset: -1px;
+		}
+	}
 
-.field textarea {
-	min-height: 6rem;
-	resize: vertical;
+	> textarea {
+		min-height: 6rem;
+		resize: vertical;
+	}
 }
 
 .button {
@@ -57,34 +55,34 @@
 	letter-spacing: 0.05em;
 	cursor: pointer;
 	text-decoration: none;
-}
 
-.button:hover {
-	background: var(--surface-alt);
-}
+	&:hover {
+		background: var(--surface-alt);
+	}
 
-.button--primary {
-	background: var(--accent);
-	border-color: var(--accent);
-	color: var(--on-accent);
-}
+	&.primary {
+		background: var(--accent);
+		border-color: var(--accent);
+		color: var(--on-accent);
 
-.button--primary:hover {
-	background: var(--accent-hover);
-	border-color: var(--accent-hover);
-	color: var(--on-accent);
-}
+		&:hover {
+			background: var(--accent-hover);
+			border-color: var(--accent-hover);
+			color: var(--on-accent);
+		}
+	}
 
-.button--danger {
-	background: var(--danger);
-	border-color: var(--danger);
-	color: var(--on-danger);
-}
+	&.danger {
+		background: var(--danger);
+		border-color: var(--danger);
+		color: var(--on-danger);
 
-.button--danger:hover {
-	background: var(--danger-hover);
-	border-color: var(--danger-hover);
-	color: var(--on-danger);
+		&:hover {
+			background: var(--danger-hover);
+			border-color: var(--danger-hover);
+			color: var(--on-danger);
+		}
+	}
 }
 
 .inline-form {
@@ -103,10 +101,10 @@
 	text-decoration: underline;
 	text-underline-offset: 2px;
 	cursor: pointer;
-}
 
-.nav-link:hover {
-	text-decoration-thickness: 2px;
+	&:hover {
+		text-decoration-thickness: 2px;
+	}
 }
 
 .chip {
@@ -121,23 +119,23 @@
 	background: var(--surface);
 	text-decoration: none;
 	cursor: pointer;
-}
 
-.chip:hover {
-	border-color: var(--border);
-	background: var(--surface-alt);
-}
+	&:hover {
+		border-color: var(--border);
+		background: var(--surface-alt);
+	}
 
-.chip--active {
-	background: var(--text);
-	border-color: var(--text);
-	color: var(--bg);
-}
+	&.active {
+		background: var(--text);
+		border-color: var(--text);
+		color: var(--bg);
 
-.chip--active:hover {
-	background: var(--text);
-	border-color: var(--text);
-	color: var(--bg);
+		&:hover {
+			background: var(--text);
+			border-color: var(--text);
+			color: var(--bg);
+		}
+	}
 }
 
 .filter-row {
@@ -146,27 +144,27 @@
 	gap: var(--space-3);
 	padding: var(--space-1) 0;
 	border-bottom: 1px dashed var(--border-subtle);
-}
 
-.filter-row:last-child {
-	border-bottom: none;
-}
+	&:last-child {
+		border-bottom: none;
+	}
 
-.filter-row__label {
-	min-width: 120px;
-	font-size: 0.7rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
-	color: var(--text-muted);
-	white-space: nowrap;
-}
+	> .label {
+		min-width: 120px;
+		font-size: 0.7rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--text-muted);
+		white-space: nowrap;
+	}
 
-.filter-row__options {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space-1);
-	align-items: center;
+	> .options {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-1);
+		align-items: center;
+	}
 }
 
 .sort-link {
@@ -177,12 +175,12 @@
 	letter-spacing: 0.04em;
 	text-decoration: none;
 	white-space: nowrap;
-}
 
-.sort-link:hover {
-	color: var(--accent);
-}
+	&:hover {
+		color: var(--accent);
+	}
 
-.sort-link--active {
-	color: var(--accent);
+	&.active {
+		color: var(--accent);
+	}
 }

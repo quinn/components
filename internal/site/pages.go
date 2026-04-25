@@ -48,9 +48,9 @@ func homePage(groups []componentGroup) g.Node {
 
 func groupCard(grp componentGroup) g.Node {
 	return h.A(h.Class("group-card"), h.Href("/components/"+grp.Slug),
-		h.Span(h.Class("group-card__name"), g.Text(grp.Name)),
-		h.Span(h.Class("group-card__desc"), g.Text(grp.Description)),
-		h.Span(h.Class("group-card__count"),
+		h.Span(h.Class("name"), g.Text(grp.Name)),
+		h.Span(h.Class("desc"), g.Text(grp.Description)),
+		h.Span(h.Class("count"),
 			g.Text(fmt.Sprintf("%d components", len(grp.Components))),
 		),
 	)
@@ -88,10 +88,10 @@ func componentSection(c componentDoc) g.Node {
 func exampleBlock(ex componentExample) g.Node {
 	return h.Div(h.Class("example"),
 		g.If(ex.Title != "",
-			h.Div(h.Class("example__title"), g.Text(ex.Title)),
+			h.Div(h.Class("title"), g.Text(ex.Title)),
 		),
-		h.Div(h.Class("example__demo"), ex.Demo),
-		h.Div(h.Class("example__code"),
+		h.Div(h.Class("demo"), ex.Demo),
+		h.Div(h.Class("code"),
 			comp.CodeBlock("", ex.Code),
 		),
 	)
@@ -103,7 +103,7 @@ func docsNav(groups []componentGroup, activeSlug string) g.Node {
 	}
 	for _, grp := range groups {
 		items = append(items,
-			h.Span(h.Class("docs-nav__group"), g.Text(grp.Name)),
+			h.Span(h.Class("group"), g.Text(grp.Name)),
 			navLink("/components/"+grp.Slug, grp.Name, activeSlug == grp.Slug),
 		)
 	}
