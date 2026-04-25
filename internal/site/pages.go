@@ -11,7 +11,7 @@ import (
 )
 
 func docsPage(title, activeSlug string, groups []componentGroup, content ...g.Node) g.Node {
-	return layout.Layout(nil, title, "docs",
+	return layout.Layout(title, "docs",
 		docsNav(groups, activeSlug),
 		h.Div(h.Class("docs-content"),
 			g.Group(content),

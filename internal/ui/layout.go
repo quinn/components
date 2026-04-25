@@ -3,12 +3,11 @@ package ui
 import (
 	"fmt"
 
-	"github.com/labstack/echo/v4"
 	g "maragu.dev/gomponents"
 	h "maragu.dev/gomponents/html"
 )
 
-func Layout(c echo.Context, title, pageClass string, children ...g.Node) g.Node {
+func Layout(title, pageClass string, children ...g.Node) g.Node {
 	return h.Doctype(
 		h.HTML(
 			h.Lang("en"),
