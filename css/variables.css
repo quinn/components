@@ -1,0 +1,98 @@
+:root {
+	color-scheme: light;
+
+	/* Base palette */
+	--bg: #ebeae5;
+	--surface: #fbfaf6;
+	--surface-alt: #f0eee8;
+	--text: #111111;
+	--text-muted: #6b6a65;
+	--border: #1a1a1a;
+	--border-subtle: #c9c4b7;
+
+	/* Accents */
+	--accent: #0a6b38;
+	--accent-hover: #074d28;
+	--accent-soft: #d7ebdf;
+	--on-accent: #fbfaf6;
+
+	--danger: #b91c1c;
+	--danger-hover: #8c1313;
+	--danger-soft: #f7dcdc;
+	--on-danger: #fbfaf6;
+
+	--highlight: #f4e38a;
+	--highlight-soft: #fbf5c9;
+	--link: #1d4ed8;
+
+	/* Status mappings */
+	--status-running: var(--text);
+	--status-canceling: var(--danger);
+	--status-succeeded: var(--accent);
+	--status-failed: var(--danger);
+	--status-canceled: var(--text-muted);
+
+	/* Legacy aliases used by components */
+	--panel: var(--surface);
+	--panel-strong: var(--surface-alt);
+	--panel-muted: var(--surface-alt);
+	--muted: var(--text-muted);
+	--accent-strong: var(--accent-hover);
+	--card-border: var(--border);
+	--stat-card-bg: var(--surface-alt);
+	--stat-card-border: var(--border-subtle);
+	--divider: var(--border-subtle);
+	--input-bg: var(--surface);
+	--button-danger-bg: var(--danger);
+	--button-danger-bg-hover: var(--danger-hover);
+	--button-danger-text: var(--on-danger);
+	--table-header-bg: var(--surface-alt);
+	--table-row-alt: var(--surface-alt);
+	--terminal-bg: var(--surface-alt);
+	--terminal-text: var(--text);
+
+	/* Shape */
+	--radius: 0;
+	--radius-sm: 0;
+
+	/* Spacing */
+	--space-1: 0.35rem;
+	--space-2: 0.65rem;
+	--space-3: 1rem;
+	--space-4: 1.4rem;
+	--space-5: 2rem;
+	--space-6: 3rem;
+
+	--content-width: 1100px;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+
+		--bg: #0f1216;
+		--surface: #171b21;
+		--surface-alt: #1d2229;
+		--text: #ebe9e2;
+		--text-muted: #9a958a;
+		--border: #ebe9e2;
+		--border-subtle: #3a4149;
+
+		--accent: #5cd38e;
+		--accent-hover: #8fe0ae;
+		--accent-soft: #14301f;
+		--on-accent: #0f1216;
+
+		--danger: #ef6969;
+		--danger-hover: #f58585;
+		--danger-soft: #3a1313;
+		--on-danger: #0f1216;
+
+		--highlight: #d4b54a;
+		--highlight-soft: #3a2f0f;
+		--link: #8ab4ff;
+
+		--table-header-bg: var(--surface-alt);
+		--table-row-alt: #1a1f26;
+	}
+}

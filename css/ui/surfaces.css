@@ -1,0 +1,74 @@
+.surface-list {
+	display: grid;
+	gap: 0;
+}
+
+.surface-list > * + * {
+	margin-top: -1px;
+}
+
+.surface {
+	display: grid;
+	gap: var(--space-2);
+	padding: var(--space-2) var(--space-3);
+	background: var(--surface);
+	border: 1px solid var(--border-subtle);
+}
+
+a.surface {
+	color: inherit;
+	text-decoration: none;
+}
+
+a.surface:hover {
+	background: var(--surface-alt);
+	border-color: var(--border);
+}
+
+.surface__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: var(--space-2);
+	flex-wrap: wrap;
+}
+
+.surface__main {
+	display: grid;
+	gap: var(--space-1);
+	min-width: 0;
+}
+
+.surface__title {
+	font-size: 0.9rem;
+	font-weight: 700;
+}
+
+.surface__meta,
+.surface__detail {
+	color: var(--text-muted);
+	font-size: 0.8rem;
+}
+
+.surface__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+	align-items: center;
+}
+
+.surface__stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: 0;
+	border: 1px solid var(--border-subtle);
+}
+
+.surface__stats > * {
+	padding: var(--space-1) var(--space-2);
+	border-right: 1px solid var(--border-subtle);
+}
+
+.surface__stats > *:last-child {
+	border-right: none;
+}

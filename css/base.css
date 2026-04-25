@@ -1,0 +1,69 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 14px;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family:
+		ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas,
+		"Liberation Mono", monospace;
+	font-feature-settings: "ss01", "ss02";
+	line-height: 1.5;
+}
+
+a {
+	color: var(--link);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+a:hover {
+	text-decoration-thickness: 2px;
+}
+
+p {
+	margin: 0;
+}
+
+h1,
+h2,
+h3 {
+	margin: 0;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 1.1rem;
+}
+
+h2 {
+	font-size: 0.95rem;
+}
+
+h3 {
+	font-size: 0.9rem;
+}
+
+pre {
+	margin: 0;
+	white-space: pre-wrap;
+	word-break: break-word;
+	font-family: inherit;
+}
+
+code {
+	font-family: inherit;
+}
+
+hr {
+	border: 0;
+	border-top: 1px dashed var(--border-subtle);
+	margin: 0;
+}

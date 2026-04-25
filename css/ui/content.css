@@ -1,0 +1,40 @@
+.empty-state {
+	color: var(--text-muted);
+	font-size: 0.85rem;
+	font-style: italic;
+}
+
+.code-block {
+	padding: var(--space-2) var(--space-3);
+	background: var(--surface-alt);
+	color: var(--text);
+	border: 1px solid var(--border-subtle);
+	border-radius: 0;
+	font-size: 0.85rem;
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+}
+
+.tag {
+	display: inline-flex;
+	align-items: center;
+	padding: 0 0.4rem;
+	background: var(--highlight-soft);
+	border: 1px solid var(--highlight);
+	color: var(--text);
+	font-size: 0.8rem;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+}
+
+.tag--accent {
+	background: var(--accent-soft);
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
+.tag--danger {
+	background: var(--danger-soft);
+	border-color: var(--danger);
+	color: var(--danger);
+}
