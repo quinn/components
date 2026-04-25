@@ -14,7 +14,7 @@ func New() *ssg.Site {
 
 	s.Add("/", ssg.HTML(homePage(groups)))
 	for _, grp := range groups {
-		s.Add("/components/"+grp.Slug, ssg.HTML(componentGroupPage(grp, groups)))
+		s.Add("/"+grp.Slug, ssg.HTML(componentGroupPage(grp, groups)))
 	}
 
 	s.Static("/static/css", "./css")

@@ -47,7 +47,7 @@ func homePage(groups []componentGroup) g.Node {
 }
 
 func groupCard(grp componentGroup) g.Node {
-	return h.A(h.Class("group-card"), h.Href("/components/"+grp.Slug),
+	return h.A(h.Class("group-card"), h.Href(layout.Path("/"+grp.Slug)),
 		h.Span(h.Class("name"), g.Text(grp.Name)),
 		h.Span(h.Class("desc"), g.Text(grp.Description)),
 		h.Span(h.Class("count"),
@@ -99,12 +99,12 @@ func exampleBlock(ex componentExample) g.Node {
 
 func docsNav(groups []componentGroup, activeSlug string) g.Node {
 	items := []g.Node{
-		navLink("/", "Overview", activeSlug == ""),
+		navLink(layout.Path("/"), "Overview", activeSlug == ""),
 	}
 	for _, grp := range groups {
 		items = append(items,
 			h.Span(h.Class("group"), g.Text(grp.Name)),
-			navLink("/components/"+grp.Slug, grp.Name, activeSlug == grp.Slug),
+			navLink(layout.Path("/"+grp.Slug), grp.Name, activeSlug == grp.Slug),
 		)
 	}
 	return h.Nav(h.Class("docs-nav"), g.Group(items))
