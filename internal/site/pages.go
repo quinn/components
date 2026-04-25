@@ -1,14 +1,52 @@
 package site
 
 import (
+	"bytes"
 	"fmt"
 
+	"github.com/alecthomas/chroma/v2"
+	chromahtml "github.com/alecthomas/chroma/v2/formatters/html"
+	"github.com/alecthomas/chroma/v2/lexers"
+	"github.com/alecthomas/chroma/v2/styles"
 	g "maragu.dev/gomponents"
 	h "maragu.dev/gomponents/html"
 
 	comp "go.quinn.io/components/components/ui"
 	layout "go.quinn.io/components/internal/ui"
 )
+
+// chromaFormatter and chromaStyle are configured once at package init so we
+// pay the chroma setup cost a single time per build.
+var (
+	chromaFormatter = chromahtml.New(
+		chromahtml.WithClasses(false),
+		chromahtml.PreventSurroundingPre(true),
+	)
+	chromaStyle = func() *chroma.Style {
+		if s := styles.Get("github-dark"); s != nil {
+			return s
+		}
+		return styles.Fallback
+	}()
+)
+
+// highlightedCode renders code with chroma using inline styles. On any
+// failure it falls back to a plain CodeBlock so docs never fail to render.
+func highlightedCode(lang, code string) g.Node {
+	lexer := lexers.Get(lang)
+	if lexer == nil {
+		return comp.CodeBlock("", code)
+	}
+	iter, err := lexer.Tokenise(nil, code)
+	if err != nil {
+		return comp.CodeBlock("", code)
+	}
+	var buf bytes.Buffer
+	if err := chromaFormatter.Format(&buf, chromaStyle, iter); err != nil {
+		return comp.CodeBlock("", code)
+	}
+	return h.Pre(h.Class("code-block"), g.Raw(buf.String()))
+}
 
 func docsPage(title, activeSlug string, groups []componentGroup, content ...g.Node) g.Node {
 	return layout.Layout(title, "docs",
@@ -92,7 +130,7 @@ func exampleBlock(ex componentExample) g.Node {
 		),
 		h.Div(h.Class("demo"), ex.Demo),
 		h.Div(h.Class("code"),
-			comp.CodeBlock("", ex.Code),
+			highlightedCode("go", ex.Code),
 		),
 	)
 }
