@@ -82,6 +82,8 @@ func homePage(groups []componentGroup) g.Node {
 		h.Div(h.Class("component-grid"),
 			g.Group(cards),
 		),
+		comp.PageHeader("Installation"),
+		highlightedCode("install-command", "shell", "go get go.quinn.io/components"),
 	)
 }
 

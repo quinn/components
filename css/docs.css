@@ -98,6 +98,14 @@ main.docs {
 	margin: 0;
 }
 
+.install-command {
+	font-size: 0.85rem;
+	padding: var(--space-2) var(--space-3);
+	background: var(--surface-alt);
+	border: 1px solid var(--border-subtle);
+	margin: 0 0 var(--space-4);
+}
+
 /* Example block */
 
 .example {
