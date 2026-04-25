@@ -4,22 +4,19 @@
 package site
 
 import (
-	g "maragu.dev/gomponents"
-	h "maragu.dev/gomponents/html"
-
-	"go.quinn.io/components/internal/ui"
 	"go.quinn.io/components/ssg"
 )
 
-// New returns the registered site. It currently contains a single blank
-// page plus the shared CSS mount.
+// New returns the registered site with all component documentation pages.
 func New() *ssg.Site {
 	s := ssg.New()
-	s.Add("/", ssg.HTML(home()))
+	groups := allGroups()
+
+	s.Add("/", ssg.HTML(homePage(groups)))
+	for _, grp := range groups {
+		s.Add("/components/"+grp.Slug, ssg.HTML(componentGroupPage(grp, groups)))
+	}
+
 	s.Static("/static/css", "./css")
 	return s
-}
-
-func home() g.Node {
-	return ui.Layout(nil, "Components", "", h.H1(g.Text("Components")))
 }

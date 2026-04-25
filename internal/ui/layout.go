@@ -26,9 +26,7 @@ func Layout(c echo.Context, title, pageClass string, children ...g.Node) g.Node 
 				h.Link(h.Rel("stylesheet"), h.Href("/static/css/ui/content.css")),
 				h.Link(h.Rel("stylesheet"), h.Href("/static/css/ui/forms.css")),
 				h.Link(h.Rel("stylesheet"), h.Href("/static/css/ui/surfaces.css")),
-				h.Link(h.Rel("stylesheet"), h.Href("/static/css/pages/dashboard.css")),
-				h.Link(h.Rel("stylesheet"), h.Href("/static/css/pages/instance.css")),
-				h.Link(h.Rel("stylesheet"), h.Href("/static/css/pages/run.css")),
+				h.Link(h.Rel("stylesheet"), h.Href("/static/css/docs.css")),
 				h.Script(
 					h.Src("https://cdn.jsdelivr.net/npm/htmx.org@2.0.9/dist/htmx.min.js"),
 					g.Attr("crossorigin", "anonymous"),
